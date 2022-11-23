@@ -5,7 +5,6 @@ import { useDrop } from 'react-dnd'
 import { handleMove } from './Game'
 import { gameSubject } from './Game'
 import Promote from './Promote'
-import audio from './assets/place.mp3'
 export default function BoardSquare({
   piece,
   black,
@@ -17,12 +16,8 @@ export default function BoardSquare({
     drop: (item) => {
       const [fromPosition] = item.id.split('_')
       handleMove(fromPosition, position)
-      playAudio()
     },
   })
-  const playAudio = () => {
-    new Audio(audio).play();
-  }
 
   useEffect(() => {
     const subscribe = gameSubject.subscribe(

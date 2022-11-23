@@ -1,9 +1,13 @@
 import * as Chess from 'chess.js'
 import { BehaviorSubject } from 'rxjs'
-
+import audio from './assets/place.mp3'
+import audio2 from './assets/place2.mp3'
 
 
 const chess = new Chess()
+
+const Audio1= new Audio(audio)
+const Audio2= new Audio(audio2)
 
 export const gameSubject = new BehaviorSubject()
 
@@ -21,6 +25,14 @@ export function resetGame() {
     updateGame()
 }
 
+const playAudio = () => {
+  Audio1.play()
+
+}
+const playAudio2 = () => {
+  Audio2.play()
+}
+
 export function handleMove(from, to) {
     const promotions = chess.moves({ verbose: true }).filter(m => m.promotion)
     console.table(promotions)
@@ -31,8 +43,8 @@ export function handleMove(from, to) {
     const { pendingPromotion } = gameSubject.getValue()
 
     if (!pendingPromotion) {
-        move(from, to)
-
+      playAudio()
+      move(from, to)
     }
 }
 
@@ -72,6 +84,7 @@ export default function handleAIPlayGame(){
     const isGameOver = chess.game_over()
     if(!!isGameOver) return
     makeBestMove('b')
+    playAudio2()
     updateGame()
 }
 
