@@ -71,7 +71,7 @@ function GameApp() {
         </h2>
       )}
       <div className="board-container">
-        {game.oponent && game.oponent.name && <span className="tag is-link">{game.oponent.name}</span>}
+        {game.opponent && game.opponent.name && <span className="tag is-danger">{game.opponent.name}</span>}
         <Board board={board} position={position} />
         {game.member && game.member.name && <span className="tag is-link">{game.member.name}</span>}
       </div>

@@ -380,11 +380,8 @@ function minimax(game, depth, alpha, beta, isMaximizingPlayer, sum, color) {
    */
   function getBestMove(game, color, currSum) {
   
-    if (color === 'b') {
-      var depth = 3
-    } else {
-      var depth = 3
-    }
+    var depth = parseInt(localStorage.getItem('difficulty'))
+    console.log(depth)
   
     var d = new Date().getTime();
     var [bestMove, bestMoveValue] = minimax(

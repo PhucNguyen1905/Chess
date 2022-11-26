@@ -1,104 +1,296 @@
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 .app-container {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: rgb(34, 34, 34);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(34, 34, 34);
 }
 .user-form {
-    margin-top: 30px !important;
-    max-width: 800px;
-    margin: auto;
+  margin-top: 30px !important;
+  max-width: 800px;
+  margin: auto;
 }
 
 .home {
-    min-height: 100vh;
+  min-height: 100vh;
 }
 .home-columns {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .pointer {
-    cursor: pointer;
+  cursor: pointer;
 }
 .share-game {
-    position: absolute;
-    width: 500px;
-    bottom: 0;
-    left: 0;
+  position: absolute;
+  width: 500px;
+  bottom: 0;
+  left: 0;
 }
 .board-container {
-    width: 600px;
-    height: 600px;
+  width: 600px;
+  height: 600px;
 }
 
 .board {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-wrap: wrap;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .square {
-    width: 12.5%;
-    height: 12.5%;
+  width: 12.5%;
+  height: 12.5%;
 }
 
 .promote-square {
-    width: 50%;
-    height: 50%;
+  width: 50%;
+  height: 50%;
 }
 
 .square-black {
-    background: #B59963
+  background: #b59963;
 }
 
 .square-white {
-    background: #F0D9B5
+  background: #f0d9b5;
 }
 
 .board-square {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 .cursor-pointer {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .piece-container {
-    cursor: grab;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  cursor: grab;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .piece {
-    max-width: 70%;
-    max-height: 70%;
+  max-width: 70%;
+  max-height: 70%;
 }
 
 .vertical-text {
-    text-orientation: upright;
-    writing-mode: vertical-lr;
-    font-family: sans-serif;
-    padding: 10px;
-    color: white;
+  text-orientation: upright;
+  writing-mode: vertical-lr;
+  font-family: sans-serif;
+  padding: 10px;
+  color: white;
 }
 
 .vertical-text button {
-    margin-top: 20px;
-    cursor: pointer;
-    background: rgb(63, 63, 63);
-    border: 2px solid white;
-    border-radius: 10px;
+  margin-top: 20px;
+  cursor: pointer;
+  background: rgb(63, 63, 63);
+  border: 2px solid white;
+  border-radius: 10px;
+}
 
+.brand-title {
+  margin-top: 200px;
+  font-weight: 900;
+  font-size: 1.8rem;
+  color: white;
+  letter-spacing: 1px;
+}
+
+.user-form h1 {
+  text-align: center;
+}
+
+.user-form input,
+button {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: none;
+  outline: none;
+  box-sizing: border-box;
+}
+.user-form button {
+  cursor: pointer;
+  background: rgb(63, 63, 63);
+  border: 2px solid white;
+  border-radius: 10px;
+  color: white;
+}
+.user-form input {
+  background: #ecf0f3;
+  padding: 10px;
+  padding-left: 20px;
+  height: 50px;
+  font-size: 14px;
+  border-radius: 50px;
+  box-shadow: inset 6px 6px 6px #cbced1, inset -6px -6px 6px white;
+}
+
+#menu {
+  width: 0px;
+  height: 0px;
+
+  border-left: 300px solid transparent;
+  border-right: 300px solid transparent;
+  border-top: 300px solid transparent;
+  border-radius: px;
+  position: relative;
+  margin: auto;
+  top: 5px;
+  left: 2px;
+
+  margin-top: 5rem;
+}
+
+#single {
+  margin-top: 10rem;
+  position: relative;
+  bottom: 330px;
+  right: 300px;
+  height: 50px;
+  width: 600px;
+  background: #006680;
+  text-align: center;
+  font-size: 30px;
+  background-size: 1px 300%;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  color: orange;
+  font-family: shadows into light;
+
+  cursor: pointer;
+}
+
+#single:hover {
+  background: #7a0000;
+  color: white;
+  -webkit-transform: rotate(-1deg);
+  transform: rotate(-2deg);
+}
+
+#multiplayer:hover {
+  background: #7a0000;
+  color: white;
+
+  -webkit-transform: rotate(-2deg);
+  transform: rotate(-2deg);
+}
+
+#options:hover {
+  background: #7a0000;
+  color: white;
+  -webkit-transform: rotate(-2deg);
+  transform: rotate(-2deg);
+}
+
+#single p {
+  position: relative;
+  top: 2px;
+  right: 4px;
+}
+
+#multiplayer {
+  margin-top: 4rem;
+  height: 50px;
+  width: 500px;
+  background: #006680;
+  position: relative;
+  bottom: 345px;
+  right: 240px;
+  text-align: center;
+  font-size: 30px;
+  font-family: shadows into light;
+  color: orange;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  cursor: pointer;
+}
+#multiplayer p {
+  position: relative;
+  top: 0px;
+  right: 9px;
+}
+
+#options {
+  margin-top: 4rem;
+
+  height: 50px;
+  width: 400px;
+  background: #006680;
+  position: relative;
+  bottom: 360px;
+  right: 200px;
+  font-size: 30px;
+  text-align: center;
+  font-family: shadows into light;
+  color: orange;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+#options p {
+  position: relative;
+  top: 0px;
+  right: 4px;
+}
+
+.card-content {
+  text-align: center;
+}
+
+.card-footer-item{
+  border: 2px solid black;
+
+}
+
+.card-item-single{
+    border-top: 0px;
+
+}
+
+.card-footer-item {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.card-footer-item:hover {
+  background-color: #cbced1;
+}
+
+.pause-button {
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  margin-top: 0.25rem;
+  margin-left: 35rem;
+  background: #efeeee;
+  border-radius: 10%;
+  transition: all 0.3s ease-in;
+  width: 2rem;
+  height: 2rem;
+}
+.pause-button .fas {
+  display: grid;
+  place-items: center;
+  font-size: 1rem;
+  color: gray;
+}
+
+.pause-button:active .fas {
+  color: #721efa;
 }

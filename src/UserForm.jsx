@@ -9,8 +9,9 @@ export default function UserForm() {
         await auth.signInAnonymously()
     }
     return (
-        <form className="user-form" onSubmit={handleSubmit}>
-            <h1>Enter your name to start</h1>
+        <div className='app-container '>
+<form className="user-form" onSubmit={handleSubmit}>
+            <h1 className='brand-title'>Enter your name to start</h1>
             <br />
             <div className="field">
                 <p className="control">
@@ -26,11 +27,13 @@ export default function UserForm() {
             </div>
             <div className="field">
                 <p className="control">
-                    <button className="button is-success" type="submit">
+                    <button className="button" type="submit">
                         Start
                     </button>
                 </p>
             </div>
         </form>
+        </div>
+        
     )
 }

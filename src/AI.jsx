@@ -7,6 +7,22 @@ function AI() {
   const [board, setBoard] = useState([])
   const [isGameOver, setIsGameOver] = useState()
   const [result, setResult] = useState()
+  const [showModal2, setShowModal2] = useState(false);
+  const gameDifficulty = [
+    { label: "Easy", value: 1 },
+    { label: "Normal", value: 2 },
+    { label: "Hard", value: 3 },
+  ];
+
+  
+  function setGameDifficulty(diff) {
+    localStorage.setItem("difficulty", diff);
+    setShowModal2(false)
+  }
+
+  function handlePauseGame() {
+    setShowModal2(true);
+  }
   useEffect(() => {
     initGame()
     const subscribe = gameSubject.subscribe((game) => {
@@ -28,8 +44,40 @@ function AI() {
       )}
       <div className="board-container">
         <Board board={board}/>
+      <div className='pause-button'  onClick={handlePauseGame}><i class="fas fa-play"></i></div>
+
       </div>
       {result && <p className="vertical-text">{result}</p>}
+      <div className={`modal ${showModal2 ? "is-active" : ""}`}>
+          <div className="modal-background"></div>
+          <div className="modal-content">
+            <div className="card">
+              <div className="card-content">
+                <div className="content"><h2>Game Paused</h2></div>
+              </div>
+              <footer className="card-footer">
+                {gameDifficulty.map(({ label, value }) => (
+                  <span
+                    className="card-footer-item pointer"
+                    key={value}
+                    onClick={() => setGameDifficulty(value)}
+                  >
+                    {label}
+                  </span>
+                ))}
+              </footer>
+              <footer className="card-footer">
+                  <span
+                    className="card-footer-item card-item-single pointer"
+                    onClick={() => setShowModal2(false)}
+                  >
+                    Continue
+                  </span>
+              </footer>
+            </div>
+          </div>
+
+        </div>
     </div>
   )
 }

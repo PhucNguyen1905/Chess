@@ -4,6 +4,13 @@ import { map } from 'rxjs/operators'
 import { auth } from './firebase'
 import { fromDocRef } from 'rxfire/firestore'
 
+import audio from './assets/place.mp3'
+const Audio1= new Audio(audio)
+const playAudio = () => {
+    Audio1.play()
+  
+}
+
 let gameRef
 let member
 
@@ -40,7 +47,7 @@ export async function initGame(gameRefFb) {
                 const game = gameDoc.data()
                 const { pendingPromotion, gameData, ...restOfGame } = game
                 member = game.members.find(m => m.uid === currentUser.uid)
-                const oponent = game.members.find(m => m.uid !== currentUser.uid)
+                const opponent = game.members.find(m => m.uid !== currentUser.uid)
                 if (gameData) {
                     chess.load(gameData)
                 }
@@ -51,7 +58,7 @@ export async function initGame(gameRefFb) {
                     isGameOver,
                     position: member.piece,
                     member,
-                    oponent,
+                    opponent,
                     result: isGameOver ? getGameResult() : null,
                     ...restOfGame
                 }
@@ -92,6 +99,7 @@ export function handleMove(from, to) {
 
     if (!pendingPromotion) {
         move(from, to)
+        playAudio()
     }
 }
 
