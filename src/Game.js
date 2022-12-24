@@ -71,7 +71,6 @@ function updateGame(pendingPromotion) {
         result: isGameOver ? getGameResult() : null
     }
 
-    // localStorage.setItem('savedGame', chess.fen())
 
     gameSubject.next(newGame)
 }
@@ -105,10 +104,6 @@ function getGameResult() {
 
 
 // AI using Minimax and alpha-beta
-/*
- * Piece Square Tables, adapted from Sunfish.py:
- * https://github.com/thomasahle/sunfish/blob/master/sunfish.py
- */
 
 var globalSum = 0; // always from black's perspective. Negative for white's perspective.
 
@@ -373,7 +368,6 @@ function minimax(game, depth, alpha, beta, isMaximizingPlayer, sum, color) {
   function getBestMove(game, color, currSum) {
   
     var depth = parseInt(localStorage.getItem('difficulty'))
-    console.log(depth)
   
     var d = new Date().getTime();
     var [bestMove, bestMoveValue] = minimax(
