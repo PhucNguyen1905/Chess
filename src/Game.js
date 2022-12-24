@@ -12,10 +12,6 @@ const Audio2= new Audio(audio2)
 export const gameSubject = new BehaviorSubject()
 
 export function initGame() {
-    // const savedGame = localStorage.getItem('savedGame')
-    // if (savedGame) {
-    //     chess.load(savedGame)
-    // }
     updateGame()
 }
 
@@ -253,10 +249,7 @@ function evaluateBoard(game, move, prevSum, color) {
       if (move.piece === 'k') {
         move.piece = 'k_e';
       }
-      // Kings can never be captured
-      // else if (move.captured === 'k') {
-      //   move.captured = 'k_e';
-      // }
+
     }
   
     if ('captured' in move) {
@@ -329,7 +322,6 @@ function minimax(game, depth, alpha, beta, isMaximizingPlayer, sum, color) {
     for (var i = 0; i < children.length; i++) {
       currMove = children[i];
   
-      // Note: in our case, the 'children' are simply modified game states
       var currPrettyMove = game.move(currMove);
       var newSum = evaluateBoard(game, currPrettyMove, sum, color);
       var [childBestMove, childValue] = minimax(
@@ -410,32 +402,5 @@ function minimax(game, depth, alpha, beta, isMaximizingPlayer, sum, color) {
     globalSum = evaluateBoard(chess, move, globalSum, 'b');
   
     chess.move(move);
-    // board.position(game.fen());
-  
-    // if (color === 'b') {
-    //   checkStatus('black');
-  
-    //   // Highlight black move
-    //   $board.find('.' + squareClass).removeClass('highlight-black');
-    //   $board.find('.square-' + move.from).addClass('highlight-black');
-    //   squareToHighlight = move.to;
-    //   colorToHighlight = 'black';
-  
-    //   $board
-    //     .find('.square-' + squareToHighlight)
-    //     .addClass('highlight-' + colorToHighlight);
-    // } else {
-    //   checkStatus('white');
-  
-    //   // Highlight white move
-    //   $board.find('.' + squareClass).removeClass('highlight-white');
-    //   $board.find('.square-' + move.from).addClass('highlight-white');
-    //   squareToHighlight = move.to;
-    //   colorToHighlight = 'white';
-  
-    //   $board
-    //     .find('.square-' + squareToHighlight)
-    //     .addClass('highlight-' + colorToHighlight);
-    // }
   }
   

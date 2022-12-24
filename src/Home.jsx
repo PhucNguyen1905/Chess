@@ -107,7 +107,11 @@ export default function Home() {
           ></button>
         </div>
 
+
         <div id="menu">
+        <div id="chess">
+            <p>CHESS GAME</p>
+          </div>
           <div id="single" onClick={handlePlayOffline}>
             <p>SINGLE PLAYER</p>
           </div>

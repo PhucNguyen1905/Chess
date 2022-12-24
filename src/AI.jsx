@@ -2,12 +2,16 @@ import React, { useEffect, useState } from 'react'
 import './App.css'
 import { gameSubject, initGame, resetGame } from './Game'
 import Board from './Board'
+import { useHistory } from 'react-router-dom'
 
 function AI() {
   const [board, setBoard] = useState([])
   const [isGameOver, setIsGameOver] = useState()
   const [result, setResult] = useState()
   const [showModal2, setShowModal2] = useState(false);
+  const history = useHistory()
+
+
   const gameDifficulty = [
     { label: "Easy", value: 1 },
     { label: "Normal", value: 2 },
@@ -22,6 +26,12 @@ function AI() {
 
   function handlePauseGame() {
     setShowModal2(true);
+  }
+  function handleExit(){
+    setShowModal2(false)
+    resetGame()
+    history.push('/')
+
   }
   useEffect(() => {
     initGame()
@@ -72,6 +82,14 @@ function AI() {
                     onClick={() => setShowModal2(false)}
                   >
                     Continue
+                  </span>
+              </footer>
+              <footer className="card-footer">
+                  <span
+                    className="card-footer-item card-item-single pointer"
+                    onClick={() => handleExit()}
+                  >
+                    Exit
                   </span>
               </footer>
             </div>
