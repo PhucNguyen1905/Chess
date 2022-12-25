@@ -4,7 +4,7 @@
 - 3 modes: Easy, Normal, Hard
 - AI using  Minimax algorithm and Alpha-beta pruning
 
-## Multiplater:
+## Multiplayer:
 - Play online with friend
 - Use link to invite friend
 
